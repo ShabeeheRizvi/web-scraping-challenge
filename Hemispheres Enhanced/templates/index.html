@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>Mission To Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+
+    <!-- Mars Info -->
+
+    
+    {% for item in mars_results %}
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Latest Mars News</h2>
+        <h5>{{item.latestheadline}}</h5>
+        <p>{{item.latestparagraph}}</p>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-7">
+        <h2>Featured Mars Image</h2>
+        <img src = {{item.featuredimage}} height=400px width=600 px>
+        <p></p>
+      </div>
+      <div class="col-md-5">
+        <div class="row">
+          <h3>Current Weather on Mars</h3>
+          <p>{{item.currentweather}}</p>
+        </div>
+        <div class="row">
+          <h3>Mars Facts</h3>
+          <p> {{item.factstable | safe}} </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <img src = {{item.va_img_url}} height=500px width=500px>
+        <p>Valles Marineris Hemisphere Enhanced</p>
+        <p></p>
+      </div>
+      <div class="col-6">
+        <img src = {{item.ce_img_url}} height=500px width=500px>
+        <p>Cerberus Hemisphere Enhanced</p>
+      </div>
+      <p></p>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <img src = {{item.sc_img_url}} height=500px width=500px>
+        <p>Schiaperelli Hemisphere Enhanced</p>
+        <p></p>
+      </div>
+      <div class="col-6">
+        <img src = {{item.sy_img_url}} height=500px width=500px>
+        <p>Syrtis Major Hemisphere Enhanced</p>
+        <p></p>
+      </div>
+    </div>
+
+
+
+    {% endfor %}
+
+  </div>
+</body>
+
+</html>
